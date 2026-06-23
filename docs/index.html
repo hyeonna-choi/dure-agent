@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A Dual-Agent Framework for Translating Unstructured Biological Experimental Protocols with Cross-Verification in Self-Driving Laboratories.">
+  <meta name="keywords" content="LLM Agents, Self-Driving Laboratory, Protocol Automation, Cross-Verification, BioForge, Physical AI">
+  <title>Dual-Agent Protocol Translation · Self-Driving Labs</title>
+
+  <meta property="og:title" content="A Dual-Agent Framework for Translating Biological Protocols"/>
+  <meta property="og:description" content="Parser + Validation agents translate natural-language lab protocols into executable equipment commands, with 3-stage cross-verification and self-correction. Deployed on KIMM BioForge."/>
+  <meta property="og:type" content="website"/>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">
+            A Dual-Agent Framework for Translating Unstructured Biological
+            Experimental Protocols with Cross-Verification in Self-Driving Laboratories
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="mailto:hynaaaai@gmail.com">Hyeonna Choi</a><sup>1</sup>,</span>
+            <span class="author-block">Jung Yup Kim<sup>2</sup>,</span>
+            <span class="author-block">Hyuneui Lim<sup>1</sup>,</span>
+            <span class="author-block">Seunggyu Jeon<sup>1</sup></span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>Dept. of Bionic Machinery, AI Robot Research Institute, KIMM&nbsp;&nbsp;</span>
+            <span class="author-block"><sup>2</sup>Nano-convergence Manufacturing Research Division, KIMM</span>
+          </div>
+
+          <div class="conf-badge">
+            <i class="fas fa-award"></i>&nbsp; KSME Bio-Engineering Spring Conference 2026 · Poster
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="poster.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-image"></i></span><span>Poster</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#video" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-play"></i></span><span>Demo Video</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/hyeonna-choi/dure-agent" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TEASER VIDEO ===================== -->
+<section class="hero teaser" id="video">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video class="teaser-video" controls muted playsinline poster="./static/images/architecture.png">
+        <source src="./static/videos/demo.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        A <span class="dnerf">dual-agent</span> framework translates a free-text protocol into
+        executable equipment commands and runs it autonomously on the KIMM BioForge platform.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABSTRACT ===================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Natural-language biological protocols are inherently unstructured — full of implicit
+            procedural knowledge and ambiguous instructions — which makes them hard to execute
+            directly on laboratory hardware. Converting them into machine-executable commands is a
+            fundamental bottleneck for <b>self-driving laboratories</b>.
+          </p>
+          <p>
+            We propose a <b>dual-agent framework</b>: a <b>Parser Agent</b> structures the raw
+            protocol, and a <b>Validation Agent</b> performs <b>3-stage cross-verification</b>
+            — completeness, parameter accuracy, and execution order — with iterative
+            <b>self-correction</b> (up to 3 regenerations). The framework was deployed on the
+            <b>KIMM BioForge-1</b> platform, demonstrating fully automated bioassay execution
+            directly from natural-language input.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== METHOD / ARCHITECTURE ===================== -->
+<section class="section" style="padding-top:0;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Framework</h2>
+    <img src="./static/images/architecture.png" alt="Architecture" class="full-img method-img">
+    <div class="content has-text-justified" style="margin-top:1.5rem;">
+      <ol>
+        <li><b>Parser Agent</b> — converts an unstructured text protocol into a structured,
+          step-by-step representation.</li>
+        <li><b>Rule Engine</b> — maps the structured output into concrete equipment-control
+          command sequences.</li>
+        <li><b>Validation Agent</b> — cross-verifies the commands against the protocol on three
+          axes (completeness, parameter accuracy, execution order) and emits PASS/FAIL with
+          feedback.</li>
+        <li><b>Auto-Regenerate (≤3×)</b> — on FAIL, the framework self-corrects and regenerates,
+          improving quality across iterations before execution on hardware.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESULTS ===================== -->
+<section class="section" style="padding-top:0;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+
+    <div class="result-card">
+      <img src="./static/images/accuracy_by_attempt.png" alt="Accuracy across iterations" class="full-img">
+      <p class="caption">Protocol translation accuracy improves across validation iterations.
+        Claude Sonnet 4.6 as validator yields the strongest iterative gains across 7 parser agents.</p>
+    </div>
+
+    <div class="columns" style="margin-top:1.5rem;">
+      <div class="column is-half result-card">
+        <img src="./static/images/direct_vs_standard.png" alt="Standard vs Direct" class="full-img">
+        <p class="caption">Rule-based (Standard) pipeline vs. direct LLM mapping across
+          step completeness, parameter accuracy, and step-order accuracy.</p>
+      </div>
+      <div class="column is-half result-card">
+        <img src="./static/images/experiment_example.png" alt="Input/Output example" class="full-img">
+        <p class="caption">End-to-end example: free-text protocol + well configuration →
+          executed command sequence on BioForge-1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SYSTEM / UI ===================== -->
+<section class="section" style="padding-top:0;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">System &amp; Interface</h2>
+    <img src="./static/images/ui_screenshot.png" alt="UI" class="full-img">
+    <p class="caption">Chatbot-style protocol input (PDF upload or direct text) with user-defined
+      well allocation for standard-curve points, samples, and replicates.</p>
+  </div>
+</section>
+
+<!-- ===================== POSTER ===================== -->
+<section class="section" style="padding-top:0;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Poster</h2>
+    <a href="poster.pdf"><img src="./static/images/poster.png" alt="Poster" class="full-img method-img"></a>
+    <p class="caption">KSME Bio-Engineering Spring Conference 2026 — click to open the full PDF.</p>
+  </div>
+</section>
+
+<!-- ===================== BIBTEX ===================== -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{choi2026dualagent,
+  author    = {Choi, Hyeonna and Kim, Jung Yup and Lim, Hyuneui and Jeon, Seunggyu},
+  title     = {A Dual-Agent Framework for Translating Unstructured Biological
+               Experimental Protocols with Cross-Verification in Self-Driving Laboratories},
+  booktitle = {KSME Bio-Engineering Division Spring Conference},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8 has-text-centered">
+        <p>Korea Institute of Machinery &amp; Materials (KIMM) · AI Robot Research Institute.
+           Page template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

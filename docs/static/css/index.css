@@ -1,0 +1,30 @@
+body { font-family: 'Noto Sans', sans-serif; }
+.publication-title { font-family: 'Google Sans', sans-serif; }
+.publication-authors { font-family: 'Google Sans', sans-serif; margin-top: 1rem; }
+.publication-authors a { color: hsl(215, 70%, 42%) !important; }
+.publication-authors a:hover { text-decoration: underline; }
+.author-block { display: inline-block; margin: 0 0.35rem; }
+.conf-badge { display:inline-block; background:#eef2fb; color:#21456e; font-weight:600;
+  border-radius:6px; padding:5px 14px; margin-top:14px; font-size:0.95rem; }
+.publication-links { margin-top: 1.4rem; }
+.publication-links .link-block { margin: 0 0.25rem; }
+.button.is-dark { background:#21456e; }
+.button.is-disabled { opacity: 0.55; pointer-events: none; }
+
+.teaser { background-color: #fafafa; }
+.teaser-video, .full-img {
+  display:block; margin:0 auto; max-width:100%;
+  border-radius:10px; box-shadow:0 4px 20px rgba(0,0,0,0.10);
+}
+.teaser .subtitle { margin-top:1.4rem; font-family:'Google Sans',sans-serif; color:#4a4a4a; }
+.dnerf { font-variant: small-caps; font-weight:600; color:hsl(215,70%,42%); }
+
+.method-img { background:#fff; border:1px solid #eee; padding:14px; }
+.result-card { margin-bottom:1.5rem; }
+.result-card .caption { color:#666; font-size:0.92rem; margin-top:0.6rem; text-align:center; }
+
+.placeholder { border:2px dashed #c8c8c8; border-radius:8px; padding:2.2rem 1.5rem;
+  text-align:center; color:#7a7a7a; background:#f7f7f7; }
+pre code { font-size: 0.85rem; }
+.footer { padding: 2rem 1.5rem; }
+.title.is-3 { color:#21456e; }
