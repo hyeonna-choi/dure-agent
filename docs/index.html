@@ -192,11 +192,12 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Framework Overview</h2>
     <div class="fig">
-      <img src="./static/images/architecture.png" alt="Overall dual-agent framework" class="full-img method-img">
-      <p class="caption"><b>Fig. 1.</b> The integrated pipeline: (1) natural-language protocol and microplate
-        layout as input, (2) LLM-based structuring, (3) rule-based mapping into device-level commands,
-        (4) cross-model validation with a feedback-based self-correction loop (&le;3 iterations), (5) the
-        verified command sequence, and (6) automated execution on the robotic platform.</p>
+      <img src="./static/images/architecture.png" alt="Agents-guided dual-agent pipeline" class="full-img method-img">
+      <p class="caption"><b>Fig. 1.</b> The agents-guided pipeline. A free-text protocol is structured by
+        the <b>Parser Agent</b>, mapped into equipment-control commands by the <b>Rule Engine</b>, and
+        cross-verified by the <b>Validation Agent</b> on three axes (completeness, parameter accuracy,
+        execution order). On FAIL, an <b>Auto-Regenerate</b> loop (&le;3&times;) self-corrects; on PASS,
+        the verified command sequence is executed as an automated microplate experiment.</p>
     </div>
     <div class="content has-text-justified" style="margin-top:1rem;">
       <ol>
