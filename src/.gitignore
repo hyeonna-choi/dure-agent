@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+
+# Generated outputs
+output/
+evaluation_results/
+*.log
+
+# Local data (provide your own protocols)
+data/input/
+data/protocol_gt/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

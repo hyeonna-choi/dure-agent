@@ -53,8 +53,16 @@ rule-based architecture:
 │   ├── paper.pdf
 │   ├── poster.pdf
 │   └── static/{images,videos,css}
+├── src/                       # source code (core framework + evaluation)
+│   ├── bioforge/              # parser, rule engine, validator, models
+│   ├── evaluation/            # evaluation harness and plotting
+│   ├── data/rules/            # device command set and mapping rules
+│   ├── validate_standalone.py
+│   └── README.md              # build, configuration, and usage
 └── README.md
 ```
+
+See [`src/README.md`](src/README.md) for installation, configuration, and usage.
 
 ## Authors
 
@@ -65,4 +73,6 @@ rule-based architecture:
 
 ## Status
 
-Conference work (2026). Source code release pending institutional review.
+Conference and preprint work (2026). The core framework and evaluation harness are
+provided in [`src/`](src/) for transparency and reproducibility; a formal, packaged
+release is in preparation.
