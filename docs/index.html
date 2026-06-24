@@ -8,7 +8,7 @@
   <title>Dual-Agent Framework for Protocol Translation in Self-Driving Laboratories</title>
 
   <meta property="og:title" content="A Dual-Agent Framework for Translating Biological Protocols with Cross-Verification"/>
-  <meta property="og:description" content="Parser + Validation agents translate natural-language lab protocols into executable equipment commands, with a deterministic rule engine, 3-axis cross-verification, and self-correction. Deployed on KIMM BioForge-1."/>
+  <meta property="og:description" content="Parser and Validation agents translate natural-language laboratory protocols into executable equipment commands, with a deterministic rule engine, three-axis cross-verification, and self-correction. Deployed on KIMM BioForge-1."/>
   <meta property="og:type" content="website"/>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
@@ -38,18 +38,23 @@
 
           <div class="affil">
             <sup>1</sup>Department of Bionic Machinery, Research Institute of AI Robot, Korea Institute of Machinery &amp; Materials (KIMM)<br>
-            <sup>2</sup>Nano-convergence Manufacturing Research Division, Korea Institute of Machinery &amp; Materials (KIMM), Daejeon, South Korea
+            <sup>2</sup>Nano-convergence Manufacturing Research Division, Korea Institute of Machinery &amp; Materials (KIMM), Daejeon, Republic of Korea
           </div>
           <div class="corresp"><sup>&dagger;</sup>Corresponding authors</div>
 
           <div class="conf-badge">
-            <i class="fas fa-award"></i>&nbsp; KSME Bio-Engineering Division Spring Conference 2026 · Poster Presentation
+            KSME Bio-Engineering Division Spring Conference 2026 &middot; Poster Presentation
           </div>
 
           <div class="publication-links">
             <span class="link-block">
+              <a href="https://arxiv.org/abs/2606.20120" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-lines"></i></span><span>arXiv</span>
+              </a>
+            </span>
+            <span class="link-block">
               <a href="paper.pdf" class="external-link button is-normal is-rounded is-dark">
-                <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Full Paper</span>
+                <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
               </a>
             </span>
             <span class="link-block">
@@ -59,7 +64,7 @@
             </span>
             <span class="link-block">
               <a href="#video" class="external-link button is-normal is-rounded is-dark">
-                <span class="icon"><i class="fas fa-play"></i></span><span>Demo Video</span>
+                <span class="icon"><i class="fas fa-play"></i></span><span>Video</span>
               </a>
             </span>
             <span class="link-block">
@@ -87,9 +92,8 @@
         <source src="./static/videos/demo.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        A <span class="dnerf">dual-agent</span> framework converts a free-text protocol into a
-        device-level command sequence and executes it autonomously on the
-        <b>KIMM BioForge-1</b> robotic laboratory platform.
+        The dual-agent framework converts a free-text protocol into a device-level command sequence and
+        executes it autonomously on the KIMM BioForge-1 robotic laboratory platform.
       </h2>
     </div>
   </div>
@@ -99,10 +103,10 @@
 <section class="section" style="padding-bottom:0;">
   <div class="container is-max-desktop">
     <div class="stat-strip">
-      <div class="stat"><div class="num">7&times;3</div><div class="lbl">Parser &times; Validator sweep<br>(21 combinations)</div></div>
-      <div class="stat"><div class="num">30</div><div class="lbl">ELISA protocols<br>(sampled from 1,000)</div></div>
-      <div class="stat"><div class="num">3-axis</div><div class="lbl">Cross-verification<br>completeness · params · order</div></div>
-      <div class="stat"><div class="num">1st&nbsp;Pass</div><div class="lbl">End-to-end runs on<br>BioForge-1 hardware</div></div>
+      <div class="stat"><div class="num">21</div><div class="lbl">Parser &times; Validator combinations evaluated</div></div>
+      <div class="stat"><div class="num">30</div><div class="lbl">ELISA protocols sampled from 1,000 collected</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">verification axes: completeness, parameters, order</div></div>
+      <div class="stat"><div class="num">&le;3</div><div class="lbl">self-correction iterations before execution</div></div>
     </div>
   </div>
 </section>
@@ -112,31 +116,32 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <p class="section-kicker">Abstract</p>
-        <h2 class="title is-3">Bridging the Protocol&ndash;Hardware Semantic Gap</h2>
+        <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p class="lead">
-            Biological experiment protocols are written in <b>natural language</b>, whereas automation
-            systems rely on <b>predefined control commands</b> — a semantic gap that limits autonomous
-            execution. Microplate experiments are especially challenging because well mapping,
-            sample&ndash;reagent combinations, replicate placement, and parallel dispensing must all be
+          <p>
+            Biological experiment protocols are written in natural language, whereas automation systems
+            rely on predefined control commands, creating a semantic gap that limits autonomous
+            execution. Microplate-based experiments are particularly challenging because well mapping,
+            sample&ndash;reagent combinations, replicate placement, and parallel dispensing must be
             controlled simultaneously.
           </p>
           <p>
-            We propose an agent-based protocol-translation framework that converts natural-language,
-            microplate-based protocols into executable control commands for a robotic laboratory
-            platform. A <b>Parser Agent</b> formalizes the protocol into a structured representation;
-            a deterministic <b>rule-based mapping engine</b> then incorporates the operational
-            constraints of the hardware to generate device-level commands. A <b>heterogeneous LLM
-            Validation Agent</b> verifies completeness, parameter accuracy, and execution order, and
-            triggers a structured-feedback <b>self-correction loop</b> when errors are detected.
+            This work proposes an agent-based protocol-translation framework that converts
+            natural-language, microplate-based protocols into executable control commands for a robotic
+            laboratory platform. A <b>Parser Agent</b> formalizes the protocol into a structured
+            representation, and a deterministic <b>rule-based mapping engine</b> incorporates the
+            operational constraints of the hardware to generate device-level commands. A
+            <b>heterogeneous LLM Validation Agent</b> verifies completeness, parameter accuracy, and
+            execution order, and triggers a structured-feedback <b>self-correction loop</b> when errors
+            are detected.
           </p>
           <p>
             A <b>7 Parser &times; 3 Validator</b> sweep over randomly selected ELISA protocols quantifies
             how model scale and validator type affect translation accuracy and pass rates under
-            cross-model verification, and a Bradford-assay protein quantification was demonstrated
-            physically on the platform — validating end-to-end autonomy from natural-language protocol
-            to real-world experiment.
+            cross-model verification, and the accuracy&ndash;latency trade-off is examined against an LLM
+            end-to-end baseline. Finally, a Bradford-assay protein quantification was demonstrated on the
+            platform, validating end-to-end autonomous execution from natural-language protocol to
+            real-world experiment.
           </p>
         </div>
       </div>
@@ -147,36 +152,36 @@
 <!-- ===================== CONTRIBUTIONS ===================== -->
 <section class="section" style="padding-top:0;">
   <div class="container is-max-desktop">
-    <p class="section-kicker">Contributions</p>
-    <h2 class="title is-3 has-text-centered">What This Work Delivers</h2>
+    <h2 class="title is-3 has-text-centered">Contributions</h2>
     <div class="contrib-grid">
       <div class="contrib">
-        <span class="n">1</span>
-        <h4>Protocol&rarr;hardware in one pipeline</h4>
+        <span class="n">i</span>
+        <h4>Protocol-to-hardware in a single pipeline</h4>
         <p>An agent system targeting microplate-based biology that takes natural-language protocols as
            input and generates coordinated, executable command sequences spanning plate transfer,
-           liquid handling, and analytical-instrument control on a real robotic platform.</p>
+           liquid handling, and analytical-instrument control on a robotic laboratory platform.</p>
       </div>
       <div class="contrib">
-        <span class="n">2</span>
-        <h4>Hybrid LLM + rule architecture</h4>
-        <p>The LLM interprets free-text into a structured representation, while a deterministic
-           rule-based engine enforces physical constraints (tip-usage, transfer paths, coordinate
-           transforms) — structurally mitigating execution hallucination.</p>
+        <span class="n">ii</span>
+        <h4>Hybrid LLM and rule-based architecture</h4>
+        <p>The LLM interprets free text into a structured representation, while a deterministic
+           rule-based engine enforces physical constraints &mdash; tip-usage sequences, instrument
+           transfer paths, and coordinate transformations &mdash; structurally mitigating execution
+           hallucination.</p>
       </div>
       <div class="contrib">
-        <span class="n">3</span>
+        <span class="n">iii</span>
         <h4>Heterogeneous cross-verification</h4>
-        <p>Separating the generator from the verifier blocks self-verification bias. The Validation
-           Agent checks completeness, parameter consistency, and step order, feeding structured errors
-           back for automatic regeneration.</p>
+        <p>Separating the generation model from the verification model mitigates self-verification bias.
+           The Validation Agent checks completeness, parameter consistency, and step ordering, and feeds
+           structured errors back for automatic regeneration.</p>
       </div>
       <div class="contrib">
-        <span class="n">4</span>
+        <span class="n">iv</span>
         <h4>End-to-end physical validation</h4>
-        <p>Microplate liquid handling and a Bradford total-protein quantification assay were executed
-           on KIMM BioForge-1, shifting the researcher's role from script-writing to experimental
-           design and supervision.</p>
+        <p>Microplate liquid handling and a Bradford total-protein quantification assay were executed on
+           KIMM BioForge-1, shifting the researcher's role from script writing toward experimental design
+           and supervision.</p>
       </div>
     </div>
   </div>
@@ -185,7 +190,6 @@
 <!-- ===================== FRAMEWORK ===================== -->
 <section class="section" style="padding-top:0;">
   <div class="container is-max-desktop">
-    <p class="section-kicker">Method</p>
     <h2 class="title is-3 has-text-centered">Framework Overview</h2>
     <div class="fig">
       <img src="./static/images/architecture.png" alt="Overall dual-agent framework" class="full-img method-img">
@@ -196,16 +200,15 @@
     </div>
     <div class="content has-text-justified" style="margin-top:1rem;">
       <ol>
-        <li><b>Parser Agent</b> — converts an unstructured protocol into a tagged, step-by-step
+        <li><b>Parser Agent</b> converts an unstructured protocol into a tagged, step-by-step
           representation, explicitly separating user-performed (<code>&lt;MANUAL&gt;</code>) from
           instrument-executed (<code>&lt;INSTRUMENT&gt;</code>) steps.</li>
-        <li><b>Rule-Based Mapping Engine</b> — deterministically expands each structured step into
-          concrete equipment-control commands, absorbing the granularity gap between semantic units and
-          execution units (e.g.&nbsp;a single <i>Wash&nbsp;4&times;</i> step expands into 34 device-level
-          commands).</li>
-        <li><b>Validation Agent</b> — a heterogeneous LLM cross-verifies the commands against the
-          protocol on three axes and emits PASS/FAIL with structured feedback.</li>
-        <li><b>Auto-Regenerate (&le;3&times;)</b> — on FAIL, the framework self-corrects and regenerates
+        <li><b>Rule-based mapping engine</b> deterministically expands each structured step into concrete
+          equipment-control commands, absorbing the granularity gap between semantic units and execution
+          units &mdash; a single <i>Wash&nbsp;4&times;</i> step expands into 34 device-level commands.</li>
+        <li><b>Validation Agent</b>, a heterogeneous LLM, cross-verifies the commands against the protocol
+          on three axes and emits PASS or FAIL with structured feedback.</li>
+        <li><b>Auto-regeneration (&le;3&times;)</b>: on FAIL, the framework self-corrects and regenerates
           before any hardware execution.</li>
       </ol>
     </div>
@@ -215,15 +218,15 @@
 <!-- ===================== PLATFORM ===================== -->
 <section class="section" style="padding-top:0;">
   <div class="container is-max-desktop">
-    <p class="section-kicker">Hardware</p>
-    <h2 class="title is-3 has-text-centered">The KIMM BioForge-1 Robotic Laboratory</h2>
+    <h2 class="title is-3 has-text-centered">Robotic Laboratory Platform</h2>
     <div class="fig">
       <img src="./static/images/platform.png" alt="KIMM BioForge-1 platform" class="full-img method-img">
-      <p class="caption"><b>Fig. 2.</b> The customized robotic laboratory platform integrates three core
-        modules — a <b>Plate Transporter</b> (SCARA robot), a <b>Liquid Handler</b> (gantry robot with
-        gripper), and a <b>Plate Loader</b> — across a nine-slot Main Deck and an Analyzer Deck housing
-        the microplate reader. All operations are issued through a standardized command structure
-        (module · operation · parameters), which is the translation target of the framework.</p>
+      <p class="caption"><b>Fig. 2.</b> The customized robotic laboratory platform (KIMM BioForge-1)
+        integrates three core modules &mdash; a <b>Plate Transporter</b> (SCARA robot), a <b>Liquid
+        Handler</b> (gantry robot with gripper), and a <b>Plate Loader</b> &mdash; across a nine-slot Main
+        Deck and an Analyzer Deck housing the microplate reader. All operations are issued through a
+        standardized command structure (module, operation, parameters), which is the translation target
+        of the framework.</p>
     </div>
   </div>
 </section>
@@ -231,16 +234,15 @@
 <!-- ===================== METHOD DEEP-DIVE ===================== -->
 <section class="section" style="padding-top:0;">
   <div class="container is-max-desktop">
-    <p class="section-kicker">Inside the pipeline</p>
-    <h2 class="title is-3 has-text-centered">How a Sentence Becomes a Robot Program</h2>
+    <h2 class="title is-3 has-text-centered">Method</h2>
 
-    <div class="subhead">Stage 1 · Parser Agent — semantic structuring</div>
+    <div class="subhead">Parser Agent &mdash; semantic structuring</div>
     <div class="content has-text-justified">
-      <p>A constrained-interpretation prompt normalizes diverse protocol styles into a consistent
-        tagged schema (<code>&lt;KIT_TITLE&gt;</code>, <code>&lt;MANUAL&gt;</code>,
+      <p>A constrained-interpretation prompt normalizes diverse protocol styles into a consistent tagged
+        schema (<code>&lt;KIT_TITLE&gt;</code>, <code>&lt;MANUAL&gt;</code>,
         <code>&lt;INSTRUMENT&gt;</code>). Extraction is restricted to information present in the input,
-        reducing fabrication and preserving step order. The human&ndash;instrument task boundary, usually
-        intermixed in prose, is made explicit so that downstream mapping operates only on
+        which reduces fabrication and preserves step order. The human&ndash;instrument task boundary,
+        usually intermixed in prose, is made explicit so that downstream mapping operates only on
         instrument-executable steps.</p>
     </div>
     <div class="fig">
@@ -250,39 +252,40 @@
         (<code>MANUAL</code>) from instrument-executed (<code>INSTRUMENT</code>) steps.</p>
     </div>
 
-    <div class="subhead">Stage 2 · Rule-Based Mapping Engine — deterministic compilation</div>
+    <div class="subhead">Rule-based mapping engine &mdash; deterministic compilation</div>
     <div class="content has-text-justified">
       <p>The engine maps the structured protocol onto the platform's command system using predefined
         rules: <b>coordinate-system mapping</b> (the plate as an <i>(x, y)</i> grid with user-defined
-        well roles), <b>4-channel grouping</b> for multi-well dispensing, and rule sets for
+        well roles), <b>four-channel grouping</b> for multi-well dispensing, and rule sets for
         <b>liquid handling</b>, <b>tip management</b>, <b>plate transport</b>, and <b>environmental
         control</b>. Because the layer is deterministic, it introduces virtually no additional error when
-        the input is accurate — so essentially all residual error originates at the Parser's structuring
+        the input is accurate, so essentially all residual error originates at the Parser's structuring
         stage.</p>
     </div>
     <div class="fig">
       <img src="./static/images/rule_engine.png" alt="Rule-based mapping engine" class="full-img method-img">
-      <p class="caption"><b>Fig. 4.</b> The rule-based command-mapping engine — coordinate mapping, liquid
-        handling, tip management, plate transport, and environmental control — converts structured steps
-        into device-level commands while enforcing the platform's physical constraints.</p>
+      <p class="caption"><b>Fig. 4.</b> The rule-based command-mapping engine &mdash; coordinate mapping,
+        liquid handling, tip management, plate transport, and environmental control &mdash; converts
+        structured steps into device-level commands while enforcing the platform's physical
+        constraints.</p>
     </div>
     <div class="fig">
       <img src="./static/images/conversion_example.png" alt="Three-stage conversion example" class="full-img method-img">
       <p class="caption"><b>Fig. 5.</b> The three-stage conversion <i>Structured Protocol &rarr; Rule
         Assignment &rarr; Equipment Command Output</i>. A single semantic step decomposes into a trigger
-        keyword, an assigned rule, extracted parameters, and finally a block of device-level commands —
+        keyword, an assigned rule, extracted parameters, and finally a block of device-level commands,
         revealing that one step can expand into a few to several dozen commands.</p>
     </div>
 
-    <div class="subhead">Stage 3 · Validation Agent — cross-model verification &amp; self-correction</div>
+    <div class="subhead">Validation Agent &mdash; cross-model verification and self-correction</div>
     <div class="content has-text-justified">
       <p>The original protocol, the structured protocol, and the command sequence are all provided to a
         verifier from a <b>different model family</b> than the Parser. Verification spans
-        <b>completeness</b> (no missing steps), <b>parameter accuracy</b> (e.g.&nbsp;"2 hours" &rarr; the
-        correct instrument unit), and <b>execution order</b> (liquid handling after tip attachment,
-        rational plate movement, consistent tip-replacement policy). Detected errors become structured
-        feedback — type, location, and correction guidance — that drives regeneration until all criteria
-        pass.</p>
+        <b>completeness</b> (no missing steps), <b>parameter accuracy</b> (for example, "2 hours"
+        converted to the correct instrument unit), and <b>execution order</b> (liquid handling after tip
+        attachment, rational plate movement, consistent tip-replacement policy). Detected errors become
+        structured feedback &mdash; type, location, and correction guidance &mdash; that drives
+        regeneration until all criteria pass.</p>
     </div>
     <div class="fig">
       <img src="./static/images/validation.png" alt="Validation and self-correction loop" class="full-img method-img">
@@ -296,16 +299,16 @@
 <!-- ===================== EXPERIMENTAL SETUP ===================== -->
 <section class="section" style="padding-top:0;">
   <div class="container is-max-desktop">
-    <p class="section-kicker">Experimental setup</p>
-    <h2 class="title is-3 has-text-centered">Models, Data &amp; Metrics</h2>
+    <h2 class="title is-3 has-text-centered">Experimental Setup</h2>
     <div class="content has-text-justified">
       <p>Seven models spanning a broad range of scale and hosting served as <b>Parser Agents</b>; three
         models served as <b>Validation Agents</b>, with <b>Claude Sonnet 4.6</b> as the default external
         verifier ensuring generator&ndash;verifier heterogeneity. Evaluation drew on <b>1,000</b> ELISA
         protocols collected from the web, from which <b>30</b> stylistically diverse protocols were
-        selected; two layers of ground truth (structured-protocol GT and device-command GT) were built
-        by multiple expert reviewers with consensus adjudication. All LLM calls used identical prompt
-        templates and call parameters (temperature, top-p, max tokens, seed) for reproducibility.</p>
+        selected; two layers of ground truth (structured-protocol GT and device-command GT) were
+        constructed by multiple expert reviewers with consensus adjudication. All LLM calls used
+        identical prompt templates and call parameters (temperature, top-p, max tokens, seed) for
+        reproducibility.</p>
     </div>
     <div class="tbl-wrap">
       <table class="model-table">
@@ -313,66 +316,66 @@
           <tr><th>Model</th><th>Role</th><th>Provider</th><th>Hosting</th><th>Version / snapshot</th><th>Release</th></tr>
         </thead>
         <tbody>
-          <tr><td>GPT-5</td><td><span class="pill both">Parser · Validator</span></td><td>OpenAI</td><td>Cloud API</td><td>gpt-5-2025-08-07</td><td>2025-08-07</td></tr>
+          <tr><td>GPT-5</td><td><span class="pill both">Parser, Validator</span></td><td>OpenAI</td><td>Cloud API</td><td>gpt-5-2025-08-07</td><td>2025-08-07</td></tr>
           <tr><td>GPT-4.1</td><td><span class="pill parser">Parser</span></td><td>OpenAI</td><td>Cloud API</td><td>gpt-4.1-2025-04-14</td><td>2025-04-14</td></tr>
           <tr><td>o4-mini</td><td><span class="pill parser">Parser</span></td><td>OpenAI</td><td>Cloud API</td><td>o4-mini-2025-04-16</td><td>2025-04-16</td></tr>
           <tr><td>GPT-4.1-mini</td><td><span class="pill parser">Parser</span></td><td>OpenAI</td><td>Cloud API</td><td>gpt-4.1-mini-2025-04-14</td><td>2025-04-14</td></tr>
           <tr><td>GPT-4.1-nano</td><td><span class="pill parser">Parser</span></td><td>OpenAI</td><td>Cloud API</td><td>gpt-4.1-nano-2025-04-14</td><td>2025-04-14</td></tr>
-          <tr><td>llama-4-maverick</td><td><span class="pill both">Parser · Validator</span></td><td>Meta</td><td>Local / open-weight</td><td>Llama-4-Maverick-17B-128E-Instruct</td><td>2025-04-05</td></tr>
+          <tr><td>llama-4-maverick</td><td><span class="pill both">Parser, Validator</span></td><td>Meta</td><td>Local / open-weight</td><td>Llama-4-Maverick-17B-128E-Instruct</td><td>2025-04-05</td></tr>
           <tr><td>llama-3.3-70b</td><td><span class="pill parser">Parser</span></td><td>Meta</td><td>Local / open-weight</td><td>Llama-3.3-70B-Instruct</td><td>2024-12-06</td></tr>
           <tr><td>claude-sonnet-4-6</td><td><span class="pill val">Validator (default)</span></td><td>Anthropic</td><td>Cloud API</td><td>claude-sonnet-4-6</td><td>2026-02-17</td></tr>
         </tbody>
       </table>
     </div>
     <p class="caption"><b>Table 1.</b> Large language models used as Parser and Validator agents
-      (specifications as of 2026-05-22). <b>Parameter Accuracy</b> is a GT-normalized score that rewards
-      exact parameter/row matches across the structured and command-sequence layers while penalizing
-      over-generation; the <b>Pass rate</b> decomposes outcomes into 1st Pass, 2nd / 3rd Pass
-      (Regenerated), and Final Fail.</p>
+      (specifications as of 2026-05-22). <b>Parameter Accuracy</b> is a ground-truth-normalized score that
+      rewards exact parameter and row matches across the structured and command-sequence layers while
+      penalizing over-generation; the <b>Pass rate</b> decomposes outcomes into 1st Pass, 2nd and 3rd
+      Pass (Regenerated), and Final Fail.</p>
   </div>
 </section>
 
 <!-- ===================== RESULTS ===================== -->
 <section class="section" style="padding-top:0;">
   <div class="container is-max-desktop">
-    <p class="section-kicker">Results &amp; discussion</p>
-    <h2 class="title is-3 has-text-centered">Verification Capability, Not Heterogeneity Alone, Drives Recovery</h2>
+    <h2 class="title is-3 has-text-centered">Results and Discussion</h2>
 
     <div class="result-card fig">
       <img src="./static/images/accuracy_by_attempt.png" alt="Accuracy across iterations for three validators" class="full-img method-img">
       <p class="caption"><b>Fig. 7.</b> Parameter accuracy across <i>w/o regen &rarr; attempt 1 &rarr; 2
         &rarr; 3</i> for seven Parsers under three Validators. Only <b>claude-sonnet-4-6</b> (c) induces a
-        sharp rise after attempt 1 — GPT-4.1-mini and llama-4-maverick climb from ~0.4 to 0.7&ndash;0.8 —
-        whereas llama-4-maverick (a) and GPT-5 (b) validators pass too liberally and yield no gains.</p>
+        sharp rise after attempt 1 &mdash; GPT-4.1-mini and llama-4-maverick climb from roughly 0.4 to
+        0.7&ndash;0.8 &mdash; whereas the llama-4-maverick (a) and GPT-5 (b) validators pass too liberally
+        and yield no gains.</p>
     </div>
 
     <div class="result-card fig">
       <img src="./static/images/pass_rate.png" alt="Final pass-rate decomposition" class="full-img method-img">
       <p class="caption"><b>Fig. 8.</b> Final pass-rate decomposition over 30 protocols. Under
-        claude-sonnet-4-6 (c), protocols that fail at 1st Pass are recovered at the 2nd / 3rd Pass
-        (Regenerated) stages — even GPT-4.1-nano reaches a cumulative pass rate of ~0.4 — while the
-        regeneration stage effectively vanishes under the other two validators.</p>
+        claude-sonnet-4-6 (c), protocols that fail at 1st Pass are recovered at the 2nd and 3rd Pass
+        (Regenerated) stages &mdash; even GPT-4.1-nano reaches a cumulative pass rate of about 0.4 &mdash;
+        while the regeneration stage effectively vanishes under the other two validators.</p>
     </div>
 
     <div class="result-card fig">
-      <img src="./static/images/accuracy_latency.png" alt="Accuracy-latency and proposed vs end-to-end" class="full-img method-img">
+      <img src="./static/images/accuracy_latency.png" alt="Accuracy-latency and proposed versus end-to-end" class="full-img method-img">
       <p class="caption"><b>Fig. 9.</b> (a) The accuracy&ndash;latency plane across Parser Agents:
         correction lifts the achievable frontier in the small-model region, since low latency is
-        unchanged while effective accuracy rises. (b) The proposed hybrid framework attains <b>both
-        higher accuracy and shorter latency</b> than LLM end-to-end direct mapping, confirming the value
-        of the deterministic rule-based engine.</p>
+        unchanged while effective accuracy rises. (b) The proposed hybrid framework attains both higher
+        accuracy and shorter latency than LLM end-to-end direct mapping, confirming the contribution of
+        the deterministic rule-based engine.</p>
     </div>
 
     <ul class="takeaways">
       <li><b>Correction depends on critical verification capability.</b> Self-validation
-        (GPT-5&times;GPT-5, llama&times;llama) produced almost no effect; recovery appears only when an
-        external model that generates real structured feedback supplies it.</li>
-      <li><b>Small models recovered toward large-model accuracy</b> using inference-time validation and
-        regeneration alone — no additional training or fine-tuning.</li>
-      <li><b>A deterministic rule layer beats end-to-end LLM mapping</b> on both accuracy and latency, and
-        localizes residual error to the Parser's structuring stage.</li>
-      <li><b>GPT-4.1 is a Pareto-efficient middle ground</b> — ~0.93 1st-Pass accuracy at roughly a
-        quarter of GPT-5's latency.</li>
+        (GPT-5 &times; GPT-5, llama &times; llama) produced almost no effect; recovery appears only when an
+        external model that generates genuine structured feedback supplies it.</li>
+      <li><b>Small models recover toward large-model accuracy</b> using inference-time validation and
+        regeneration alone, without additional training or fine-tuning.</li>
+      <li><b>A deterministic rule layer outperforms end-to-end LLM mapping</b> on both accuracy and
+        latency, and localizes residual error to the Parser's structuring stage.</li>
+      <li><b>GPT-4.1 is a Pareto-efficient middle ground</b>, reaching about 0.93 1st-Pass accuracy at
+        roughly a quarter of GPT-5's latency.</li>
     </ul>
   </div>
 </section>
@@ -380,21 +383,20 @@
 <!-- ===================== DEMONSTRATION ===================== -->
 <section class="section" style="padding-top:0;">
   <div class="container is-max-desktop">
-    <p class="section-kicker">Demonstration</p>
-    <h2 class="title is-3 has-text-centered">From a Sentence to a Standard Curve</h2>
+    <h2 class="title is-3 has-text-centered">End-to-End Demonstration</h2>
     <div class="fig">
       <img src="./static/images/demonstration.png" alt="End-to-end microplate demonstrations" class="full-img method-img">
-      <p class="caption"><b>Fig. 10.</b> End-to-end execution on BioForge-1 (Parser: GPT-5, Validator:
-        Claude Sonnet 4.6; both passing on the 1st attempt). (a) A single-sentence dispensing protocol
+      <p class="caption"><b>Fig. 10.</b> End-to-end execution on BioForge-1 (Parser: GPT-5; Validator:
+        Claude Sonnet 4.6; both passing on the first attempt). (a) A single-sentence dispensing protocol
         executed well-by-well. (b) A Bradford total-protein assay on fetal bovine serum, parsed through
         dispensing, shaking, incubation, and absorbance reading. (c) The five-point BSA standard curve
-        (5&ndash;25&nbsp;µg/mL, calibrated OD 0.5188&rarr;0.9948) and the measured FBS concentrations
-        that distinguish the batches.</p>
+        (5&ndash;25&nbsp;µg/mL, calibrated OD 0.5188&rarr;0.9948) and the measured FBS concentrations that
+        distinguish the batches.</p>
     </div>
 
     <div class="subhead">Interactive interface</div>
     <div class="fig">
-      <img src="./static/images/ui_screenshot.png" alt="Chatbot UI with well-plate editor" class="full-img method-img">
+      <img src="./static/images/ui_screenshot.png" alt="Chatbot interface with well-plate editor" class="full-img method-img">
       <p class="caption">A chatbot-style interface accepts protocols by PDF upload or direct text and
         returns the structured result with the Validator's feedback, paired with a well-plate editor for
         user-defined allocation of standard-curve points, samples, and replicates.</p>
@@ -405,10 +407,9 @@
 <!-- ===================== POSTER ===================== -->
 <section class="section" style="padding-top:0;">
   <div class="container is-max-desktop">
-    <p class="section-kicker">Conference poster</p>
     <h2 class="title is-3 has-text-centered">Poster</h2>
     <a href="poster.pdf"><img src="./static/images/poster.png" alt="Conference poster" class="full-img method-img"></a>
-    <p class="caption">KSME Bio-Engineering Division Spring Conference 2026 — click to open the full
+    <p class="caption">KSME Bio-Engineering Division Spring Conference 2026. Click to open the full
       high-resolution PDF.</p>
   </div>
 </section>
@@ -416,7 +417,6 @@
 <!-- ===================== BIBTEX ===================== -->
 <section class="section" id="bibtex">
   <div class="container is-max-desktop content">
-    <p class="section-kicker">Citation</p>
     <h2 class="title is-3 has-text-centered">BibTeX</h2>
     <pre><code>@inproceedings{choi2026dualagent,
   author    = {Choi, Hyeonna and Kim, Jung Yup and Lim, Hyuneui and Jeon, Seunggyu},
@@ -439,7 +439,7 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8 has-text-centered">
-        <p>Korea Institute of Machinery &amp; Materials (KIMM) · Research Institute of AI Robot.<br>
+        <p>Korea Institute of Machinery &amp; Materials (KIMM), Research Institute of AI Robot.<br>
            Page template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
       </div>
     </div>

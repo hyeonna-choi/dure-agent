@@ -130,12 +130,12 @@ table.model-table tr:nth-child(even) td{ background:var(--bg-soft); }
 /* ---------- Takeaways ---------- */
 .takeaways{ list-style:none; margin:0.5rem 0 0; padding:0; }
 .takeaways li{
-  position:relative; padding:0.55rem 0 0.55rem 2rem; border-bottom:1px dashed var(--line);
-  color:#3c4654; line-height:1.6;
+  position:relative; padding:0.65rem 0 0.65rem 1.5rem; border-bottom:1px solid var(--line);
+  color:#3c4654; line-height:1.65;
 }
 .takeaways li:before{
-  content:"\f058"; font-family:"Font Awesome 6 Free"; font-weight:900; color:var(--brand-2);
-  position:absolute; left:0; top:0.6rem;
+  content:""; position:absolute; left:0; top:1.05rem;
+  width:8px; height:8px; border-radius:2px; background:var(--brand-2);
 }
 
 /* ---------- BibTeX / footer ---------- */
