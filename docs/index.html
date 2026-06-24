@@ -245,12 +245,6 @@
         usually intermixed in prose, is made explicit so that downstream mapping operates only on
         instrument-executable steps.</p>
     </div>
-    <div class="fig">
-      <img src="./static/images/parser.png" alt="Parser Agent structuring" class="full-img method-img">
-      <p class="caption"><b>Fig. 3.</b> The Parser Agent applies a constrained interpretation prompt to
-        convert an unstructured protocol into a tagged structured output, separating user-performed
-        (<code>MANUAL</code>) from instrument-executed (<code>INSTRUMENT</code>) steps.</p>
-    </div>
 
     <div class="subhead">Rule-based mapping engine &mdash; deterministic compilation</div>
     <div class="content has-text-justified">
@@ -262,20 +256,6 @@
         the input is accurate, so essentially all residual error originates at the Parser's structuring
         stage.</p>
     </div>
-    <div class="fig">
-      <img src="./static/images/rule_engine.png" alt="Rule-based mapping engine" class="full-img method-img">
-      <p class="caption"><b>Fig. 4.</b> The rule-based command-mapping engine &mdash; coordinate mapping,
-        liquid handling, tip management, plate transport, and environmental control &mdash; converts
-        structured steps into device-level commands while enforcing the platform's physical
-        constraints.</p>
-    </div>
-    <div class="fig">
-      <img src="./static/images/conversion_example.png" alt="Three-stage conversion example" class="full-img method-img">
-      <p class="caption"><b>Fig. 5.</b> The three-stage conversion <i>Structured Protocol &rarr; Rule
-        Assignment &rarr; Equipment Command Output</i>. A single semantic step decomposes into a trigger
-        keyword, an assigned rule, extracted parameters, and finally a block of device-level commands,
-        revealing that one step can expand into a few to several dozen commands.</p>
-    </div>
 
     <div class="subhead">Validation Agent &mdash; cross-model verification and self-correction</div>
     <div class="content has-text-justified">
@@ -286,12 +266,6 @@
         attachment, rational plate movement, consistent tip-replacement policy). Detected errors become
         structured feedback &mdash; type, location, and correction guidance &mdash; that drives
         regeneration until all criteria pass.</p>
-    </div>
-    <div class="fig">
-      <img src="./static/images/validation.png" alt="Validation and self-correction loop" class="full-img method-img">
-      <p class="caption"><b>Fig. 6.</b> The Validation Agent and self-correction loop with a worked
-        example: attempt&nbsp;1 fails with three issues (completeness, parameter accuracy, execution
-        order); structured feedback drives regeneration, and attempt&nbsp;2 passes.</p>
     </div>
   </div>
 </section>
