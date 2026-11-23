@@ -6,9 +6,9 @@ with **three-axis cross-verification** (completeness, parameter accuracy, execut
 iterative **self-correction**, deployed end-to-end on the **KIMM BioForge-1** self-driving laboratory.
 
 **Project page:** https://hyeonna-choi.github.io/dure-agent/
-**arXiv:** https://arxiv.org/abs/2606.20120 &nbsp;|&nbsp; **[Paper (PDF)](docs/paper.pdf)** &nbsp;|&nbsp; **[Poster (PDF)](docs/poster.pdf)**
+**arXiv:** https://arxiv.org/abs/2606.20120 &nbsp;|&nbsp; **[Paper (PDF)](docs/paper.pdf)**
 
-Presented at the **KSME Bio-Engineering Division Spring Conference, 2026** (Poster).
+Presented at the **KSME Bio-Engineering Division Spring Conference, 2026**.
 
 ![architecture](docs/static/images/architecture.png)
 
@@ -51,7 +51,6 @@ rule-based architecture:
 ├── docs/                      # GitHub Pages project page
 │   ├── index.html
 │   ├── paper.pdf
-│   ├── poster.pdf
 │   └── static/{images,videos,css}
 ├── src/                       # source code (core framework + evaluation)
 │   ├── bioforge/              # parser, rule engine, validator, models
