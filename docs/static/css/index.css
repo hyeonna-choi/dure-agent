@@ -46,12 +46,6 @@ b, strong{ color:#14306b; }
 .affil{ color:var(--muted); font-size:0.92rem; margin-top:0.55rem; line-height:1.6; }
 .corresp{ color:var(--muted); font-size:0.82rem; margin-top:0.35rem; }
 
-.conf-badge{
-  display:inline-block; background:var(--bg-soft-2); color:var(--brand);
-  font-weight:600; border:1px solid #dbe6f4; border-radius:999px;
-  padding:6px 16px; margin-top:18px; font-size:0.9rem;
-}
-.conf-badge i{ color:var(--accent); }
 
 .publication-links{ margin-top:1.5rem; }
 .publication-links .link-block{ margin:0.25rem; }
