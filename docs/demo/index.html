@@ -2,42 +2,92 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Demo | Dual-Agent Protocol Translation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#01004c">
+  <title>시연 영상 | 실험 프로토콜을 자동화 장비 명령으로 변환하는 AI 에이전트</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <style>
-    body{margin:0;background:#fff;color:#1a2233;
-      font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.6}
-    .wrap{max-width:860px;margin:0 auto;padding:24px 16px 48px}
-    h1{font-size:19px;margin:0 0 4px;color:#1f456e;word-break:keep-all}
-    .meta{font-size:13px;color:#5b6577;margin:0 0 24px}
-    h2{font-size:15px;margin:28px 0 8px;word-break:keep-all}
-    video{display:block;width:100%;background:#000}
-    p.cap{font-size:13px;color:#5b6577;margin:6px 0 0;word-break:keep-all}
-    .foot{margin-top:36px;padding-top:12px;border-top:1px solid #e7ebf1;font-size:13px;color:#5b6577}
-    .foot a{color:#2e6fb0;text-decoration:none}
+    :root{
+      --navy:#01004c; --navy-ink:#01004b; --ink:#22222b; --muted:#6b6b7b;
+      --lav:#d6d5ff; --lav-soft:#f0f0fc; --accent:#322cc8;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;overflow-x:hidden}
+    body{background:var(--navy);color:var(--ink);
+      font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+      -webkit-font-smoothing:antialiased;word-break:keep-all}
+
+    /* header: poster background */
+    .top{background:var(--navy) url(hero.jpg) right top / auto 100% no-repeat;
+      padding:22px 18px 30px;color:#fff}
+    .event{display:block;width:150px;height:auto;margin:0 0 26px}
+    h1{font-size:23px;line-height:1.36;font-weight:800;letter-spacing:-.025em;margin:0 0 8px;
+      text-shadow:0 2px 12px rgba(1,0,76,.6)}
+    .sub{font-size:15px;font-weight:500;color:#dcdcff;margin:0 0 14px}
+    .au{font-size:13px;color:#a9a8dd;margin:0;line-height:1.6}
+    .au sup{font-size:9px}
+
+    /* white panel with cut corner, like the poster */
+    .panel{background:#fff;margin:0 10px;padding:26px 16px 30px;
+      clip-path:polygon(28px 0,100% 0,100% 100%,0 100%,0 28px)}
+
+    .flow{display:flex;align-items:center;gap:6px;background:var(--lav-soft);border-radius:8px;
+      padding:10px 12px;font-size:13px;font-weight:600;color:var(--navy-ink);margin:0 0 4px;flex-wrap:wrap}
+    .flow em{font-style:normal;color:var(--accent)}
+
+    .sec{display:flex;align-items:center;height:44px;margin:24px 0 12px}
+    .sec img{height:44px;width:auto;flex:none;position:relative;z-index:1}
+    .sec span{flex:1;height:44px;background:var(--lav);margin-left:-2px;border-radius:0 22px 22px 0;
+      display:flex;align-items:center;padding-left:10px;font-size:17px;font-weight:800;
+      color:var(--navy-ink);letter-spacing:-.02em}
+
+    video{display:block;width:100%;aspect-ratio:16/9;background:#000;border-radius:6px}
+    .cap{margin:10px 2px 0;font-size:14px;line-height:1.65;color:var(--muted)}
+    .cap b{color:var(--navy-ink);font-weight:700}
+    .x8{font-size:11px;font-weight:700;color:var(--accent);background:var(--lav-soft);
+      border-radius:4px;padding:1px 6px;margin-left:4px}
+
+    .foot{text-align:center;padding:26px 0 34px}
+    .foot img{width:190px;height:auto}
+
+    @media (min-width:700px){
+      .wrap{max-width:860px;margin:0 auto}
+      .top{padding:36px 40px 46px} .event{width:200px} h1{font-size:32px}
+      .panel{margin:0 24px;padding:36px 40px 44px;
+        clip-path:polygon(44px 0,100% 0,100% 100%,0 100%,0 44px)}
+    }
   </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>실험 프로토콜을 자동화 장비 명령으로 변환하는 AI 에이전트</h1>
-  <p class="meta">최현나, 김정엽, 임현의, 전승규 (한국기계연구원)</p>
+  <header class="top">
+    <img class="event" src="event.png" alt="2026 KIMM스쿨 AI 활용 우수성과발표회">
+    <h1>실험 프로토콜을 자동화 장비 명령으로 변환하는 AI 에이전트</h1>
+    <p class="sub">스크립트 작성 없이 자연어 프로토콜로 실행하는 바이오 실험</p>
+    <p class="au">최현나<sup>a</sup>, 김정엽<sup>b</sup>, 임현의<sup>a,*</sup>, 전승규<sup>a,*</sup><br>한국기계연구원</p>
+  </header>
 
-  <h2>1. 프로토콜 입력 및 변환</h2>
-  <video id="v1" controls playsinline muted preload="metadata" poster="1_poster.jpg">
-    <source src="1_software.mp4" type="video/mp4">
-  </video>
-  <p class="cap">웰 배치 지정 후 프로토콜 PDF 업로드, 장비 명령 생성</p>
+  <main class="panel">
+    <div class="flow">프로토콜 입력 <em>→</em> AI 변환 · 교차 검증 <em>→</em> 장비 실행</div>
 
-  <h2>2. BioForge-1 장비 실행</h2>
-  <video id="v2" controls playsinline muted preload="metadata" poster="2_poster.jpg">
-    <source src="2_robot.mp4" type="video/mp4">
-  </video>
-  <p class="cap">팁 장착, 흡인/분주(4채널), 팁 배출 (8배속)</p>
+    <div class="sec"><img src="sec01.png" alt="01"><span>프로토콜 입력 및 변환</span></div>
+    <video id="v1" controls playsinline muted preload="metadata" poster="1_poster.jpg">
+      <source src="1_software.mp4" type="video/mp4">
+    </video>
+    <p class="cap"><b>웰 배치 지정 → 프로토콜 PDF 업로드 → 장비 명령 생성</b><br>
+      자연어 프로토콜이 구조화된 단계로 정리되고, 장비가 실행할 명령 시퀀스로 변환됩니다.</p>
 
-  <div class="foot">
-    <a href="../">Project page</a> &nbsp;|&nbsp; <a href="https://github.com/hyeonna-choi/dure-agent">GitHub</a>
-  </div>
+    <div class="sec"><img src="sec02.png" alt="02"><span>BioForge-1 장비 실행</span></div>
+    <video id="v2" controls playsinline muted preload="metadata" poster="2_poster.jpg">
+      <source src="2_robot.mp4" type="video/mp4">
+    </video>
+    <p class="cap"><b>플레이트 이송 → 분주(4채널·1채널) → 흡광도(OD) 측정</b><span class="x8">4–8×</span><br>
+      생성된 명령으로 KIMM BioForge-1이 Bradford assay 전 과정을 수행합니다.</p>
+  </main>
+
+  <footer class="foot"><img src="kimm.png" alt="한국기계연구원 KIMM"></footer>
 </div>
+
 <script>
   var v1 = document.getElementById('v1'), v2 = document.getElementById('v2');
   v1.addEventListener('ended', function () {
