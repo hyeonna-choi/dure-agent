@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo | Dual-Agent Protocol Translation</title>
+  <style>
+    body{margin:0;background:#fff;color:#1a2233;
+      font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.6}
+    .wrap{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+    h1{font-size:19px;margin:0 0 4px;color:#1f456e;word-break:keep-all}
+    .meta{font-size:13px;color:#5b6577;margin:0 0 24px}
+    h2{font-size:15px;margin:28px 0 8px;word-break:keep-all}
+    video{display:block;width:100%;background:#000}
+    p.cap{font-size:13px;color:#5b6577;margin:6px 0 0;word-break:keep-all}
+    .foot{margin-top:36px;padding-top:12px;border-top:1px solid #e7ebf1;font-size:13px;color:#5b6577}
+    .foot a{color:#2e6fb0;text-decoration:none}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>실험 프로토콜을 자동화 장비 명령으로 변환하는 AI 에이전트</h1>
+  <p class="meta">최현나, 김정엽, 임현의, 전승규 (한국기계연구원)</p>
+
+  <h2>1. 프로토콜 입력 및 변환</h2>
+  <video id="v1" controls playsinline muted preload="metadata" poster="1_poster.jpg">
+    <source src="1_software.mp4" type="video/mp4">
+  </video>
+  <p class="cap">웰 배치 지정 후 프로토콜 PDF 업로드, 장비 명령 생성</p>
+
+  <h2>2. BioForge-1 장비 실행</h2>
+  <video id="v2" controls playsinline muted preload="metadata" poster="2_poster.jpg">
+    <source src="2_robot.mp4" type="video/mp4">
+  </video>
+  <p class="cap">팁 장착, 흡인/분주(4채널), 팁 배출 (8배속)</p>
+
+  <div class="foot">
+    <a href="../">Project page</a> &nbsp;|&nbsp; <a href="https://github.com/hyeonna-choi/dure-agent">GitHub</a>
+  </div>
+</div>
+<script>
+  var v1 = document.getElementById('v1'), v2 = document.getElementById('v2');
+  v1.addEventListener('ended', function () {
+    v2.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    v2.play();
+  });
+</script>
+</body>
+</html>
